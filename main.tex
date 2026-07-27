@@ -1,0 +1,383 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{float}
+
+\geometry{margin=2.5cm}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small ISR-401 | 2026-2027 PPA}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+% ============================================
+% PORTADA
+% ============================================
+\begin{titlepage}
+\centering
+\vspace*{1cm}
+{\Large\bfseries UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO (UTEQ)}\\[0.3cm]
+{\large Facultad de Ciencias de la Computación --- Ingeniería en Software}\\[0.2cm]
+{\large Ingeniería de Requisitos (ISR-401)---2026-2027 PPA}\\[2cm]
+
+{\Huge\bfseries Taller GA}\\[0.5cm]
+{\LARGE Matriz de trazabilidad del ERS y simulación de un proceso de cambio de requisitos (Change Control Board)}\\[1cm]
+
+{\large\bfseries Proyecto Fin de Curso:}\\
+{\large Sistema de Gestión Agrícola con IA para cultivos de verde y cacao (SGA)}\\[0.3cm]
+{\large Desarrollo de las Fases 0 a 9 (Sección 5 de la guía del taller)}\\[2cm]
+
+{\large\bfseries Integrantes (ACERS):}\\[0.3cm]
+\begin{tabular}{l}
+Arteaga Alava Danela Dayana \\
+Gamarra Zarate Jamileth Estefania \\
+Mesias Quijije Jhon Alexander \\
+\end{tabular}
+\vspace{1cm}
+
+{\large\bfseries Docente:}\\
+Ing. Guerrero Ulloa Gleiston Ciceron\\[2cm]
+
+{\large Repositorio: [https://github.com/darteagaa-boop/GA-Taller-Dise-o-de-la-matriz-de-trazabilidad-del-ERS}\\[1cm]
+\vfill
+{\large \today}
+\end{titlepage}
+
+% ============================================
+% FASE 0
+% ============================================
+\section{Fijar la línea base }
+
+La línea base del taller corresponde a la versión vigente del ERS del proyecto, entregada como ``Entrega 2 (1B): Especificación de Requisitos de Software (ERS/SRS)''.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Documento base} & ERS --- Sistema de Gestión Agrícola con IA para cultivos de verde y cacao \\
+\textbf{Versión etiquetada} & ERS v1.0 \\
+\textbf{Fecha de la versión} & 30 de junio de 2026 \\
+\textbf{Commit de referencia} & [completar con el hash del commit del repositorio correspondiente a la Entrega 2 (1B) antes de iniciar el taller] \\
+\textbf{Repositorio} & [URL del repositorio] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Acuerdo del equipo:} durante la ejecución de la Parte A (matriz de trazabilidad) ningún requisito del ERS v1.0 se modifica; cualquier cambio identificado se canaliza exclusivamente a través del proceso del Change Control Board desarrollado en la Parte B (Fases 5 a 9).
+
+% ============================================
+% FASE 1
+% ============================================
+\section{ Identificación de los ítems de trazabilidad }
+
+Se listan a continuación todos los ítems que participarán en la matriz de trazabilidad, agrupados por categoría, cada uno con un identificador único.
+
+\subsection{Evidencias / fuentes (EV-XX)}
+
+\begin{longtable}{@{}cl@{}}
+\toprule
+\textbf{Código} & \textbf{Descripción} \\
+\midrule
+\endhead
+EV-01 & Entrevista semiestructurada al Administrador (Raúl Moreira Alay), 21/05/2026 \\
+EV-02 & Acta de entrevista firmada --- Administrador \\
+EV-03 & Bitácoras físicas y registros manuales de la finca (documentos existentes) \\
+EV-04 & Encuesta digital a trabajadores (Google Forms), 29/05/2026 \\
+EV-05 & Entrevista semiestructurada al Trabajador (Andrés Cedeño), 20/05/2026 \\
+EV-06 & Observación directa durante las visitas de campo a la finca \\
+EV-07 & Fotografías y evidencias del proceso AS-IS (Figuras 1 y 3 del ERS) \\
+\bottomrule
+\end{longtable}
+
+\subsection{Requisitos funcionales y no funcionales (RF-XX / RNF-XX)}
+
+16 requisitos funcionales (RF-01 a RF-16) y 6 requisitos no funcionales (RNF-01 a RNF-06), tal como se definieron en la sección 3.2 y 3.3 del ERS v1.0. El detalle completo con su descripción, actor, prioridad y criterio de aceptación se muestra en la matriz de la Fase 3.
+
+\subsection{Casos de uso (CU-XX)}
+
+Se retoman los seis casos de uso especificados textualmente en la sección 4.2 del ERS (CU-01 a CU-06) y se asigna identificador formal a los casos de uso adicionales que ya aparecían como óvalos en el diagrama de casos de uso general (Figura 9 del ERS) pero que no contaban con una ficha textual propia, para que puedan participar como ítems trazables en la matriz.
+
+\begin{longtable}{@{}cll@{}}
+\toprule
+\textbf{Código} & \textbf{Caso de uso} & \textbf{Requisitos que realiza} \\
+\midrule
+\endhead
+CU-01 & Iniciar sesión & RF-01, RNF-03, RF-14 \\
+CU-02 & Registrar cosecha & RF-05, RF-07 \\
+CU-03 & Asignar tareas & RF-08, RF-09, RF-10 \\
+CU-04 & Registrar inventario de insumos & RF-06 \\
+CU-05 & Generar recomendaciones mediante IA & RF-15 \\
+CU-06 & Registrar enfermedad de cultivos & RF-16 \\
+CU-07 & Registrar parcelas & RF-02 \\
+CU-08 & Registrar cultivos & RF-03 \\
+CU-09 & Registrar labor realizada & RF-04 \\
+CU-10 & Consultar reportes & RF-07, RF-11, RF-12, RF-13 \\
+CU-11 & Gestionar trabajadores/usuarios & RF-14 \\
+\bottomrule
+\end{longtable}
+
+\subsection{Casos de prueba (CP-XX)}
+
+El ERS v1.0 aún no incluía casos de prueba formales. Conforme a la guía del taller (``si aún no existen casos de prueba, definir al menos un identificador de prueba por cada requisito funcional crítico''), se definió un caso de prueba por cada requisito Must Have crítico y por los requisitos no funcionales de prioridad alta.
+
+\begin{longtable}{@{}cll@{}}
+\toprule
+\textbf{Código} & \textbf{Caso de prueba (criterio de verificación)} & \textbf{Requisito(s) que cubre} \\
+\midrule
+\endhead
+CP-01 & Verificar inicio de sesión con credenciales válidas e inválidas & RF-01, RNF-03, RF-14 \\
+CP-02 & Verificar registro, consulta y actualización de una parcela & RF-02 \\
+CP-03 & Verificar que un cultivo quede asociado a la parcela seleccionada & RF-03 \\
+CP-04 & Verificar registro de cosecha respetando la unidad (racimos/tachos) & RF-05 \\
+CP-05 & Verificar actualización del inventario tras registrar un insumo & RF-06 \\
+CP-06 & Verificar consulta de producción filtrada por período & RF-07 \\
+CP-07 & Verificar tiempo de respuesta $\leq$ 3 s en 20 consultas consecutivas & RNF-01 \\
+CP-08 & Verificar asignación de tarea y reflejo de su estado (pendiente/en curso/completado) & RF-08, RF-09, RF-10 \\
+CP-09 & Verificar generación automática de alerta cuando la gravedad es alta & RF-16 \\
+CP-10 & Verificar generación de reporte de producción por cultivo, parcela o período & RF-11, RF-12, RF-13 \\
+CP-11 & Verificar registro diario de labor por trabajador (deshierbe, fumigación, cosecha) & RF-04 \\
+CP-13 & Verificar disponibilidad del sistema mediante monitoreo continuo (30 días) & RNF-02 \\
+\bottomrule
+\end{longtable}
+
+\textbf{Verificación:} no se detectaron identificadores repetidos ni requisitos, casos de uso o casos de prueba sin identificador. Total de ítems trazables: 7 evidencias + 22 requisitos (16 RF + 6 RNF) + 11 casos de uso + 12 casos de prueba.
+
+% ============================================
+% FASE 2
+% ============================================
+\section{ Definir los tipos y la dirección de los enlaces }
+
+El equipo acordó registrar dos ejes de trazabilidad, tal como establece la guía del taller:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pre-especificación (pre-RS):} evidencia $\rightarrow$ requisito. Responde a la pregunta ``¿de qué evidencia de campo nació este requisito?'' y enlaza cada RF/RNF con su(s) evidencia(s) de origen (EV-XX).
+    \item \textbf{Post-especificación (post-RS):} requisito $\rightarrow$ caso de uso $\rightarrow$ caso de prueba. Responde a la pregunta ``¿en qué se convirtió este requisito y cómo se verifica?'' y enlaza cada RF/RNF con el o los CU-XX que lo realizan y el o los CP-XX que lo verifican.
+\end{itemize}
+
+\textbf{Dirección de la traza:} se exige trazabilidad bidireccional. Hacia adelante (forward), un requisito debe poder seguirse hasta el caso de uso y la prueba que lo realizan; hacia atrás (backward), un caso de uso o una prueba debe poder remontarse hasta el requisito y la evidencia que lo originaron. Esta doble lectura es la que se utiliza en la Fase 7 para el análisis de impacto.
+
+\textbf{Notación de la celda:} en la matriz de la Fase 3, cada celda contiene el identificador (o identificadores, separados por coma) del ítem relacionado; el símbolo ``---'' indica ausencia de relación. Cuando la ausencia está justificada (ver Fase 4) se agrega la anotación ``(justificado)'' en la columna Observación.
+
+% ============================================
+% FASE 3
+% ============================================
+\section{ Construcción de la matriz de trazabilidad }
+
+La matriz cruza en las filas los 22 requisitos (16 RF + 6 RNF) del ERS v1.0 con, en las columnas, su evidencia de origen y los artefactos posteriores (caso de uso, caso de prueba, prioridad). Se supera ampliamente el alcance mínimo exigido por la guía ($\geq$ 10 requisitos, $\geq$ 5 casos de uso, $\geq$ 5 casos de prueba): la matriz cubre 22 requisitos, 11 casos de uso y 12 casos de prueba.
+
+\begin{longtable}{@{}p{1.2cm}p{3.5cm}p{2.5cm}p{2.5cm}p{2cm}p{1.2cm}p{3.5cm}@{}}
+\toprule
+\textbf{Req.} & \textbf{Descripción breve} & \textbf{Evidencia} & \textbf{CU} & \textbf{Prueba} & \textbf{Prior.} & \textbf{Observación} \\
+\midrule
+\endhead
+RF-01 & Inicio de sesión por rol & EV-01 & CU-01 & CP-01 & Must & Base del control de acceso \\
+RF-02 & Gestión de parcelas & EV-01 & CU-07 & CP-02 & Must & Sustento de cultivos y labores \\
+RF-03 & Gestión de cultivos & EV-01 & CU-08 & CP-03 & Must & Asociado a una parcela \\
+RF-04 & Registro de actividades agrícolas & EV-05, EV-06 & CU-09 & CP-11 & Must & Vacío detectado y corregido (Fase 4) \\
+RF-05 & Registro de cosechas & EV-01 & CU-02 & CP-04 & Must & Unidades: racimos (verde) / tachos (cacao) \\
+RF-06 & Gestión de inventario de insumos & EV-03, EV-07 & CU-04 & CP-05 & Must & \\
+RF-07 & Consulta de producción por período & EV-01 & CU-02, CU-10 & CP-06 & Must & \\
+RF-08 & Planificación de actividades agrícolas & EV-01 & CU-03 & CP-08 (indirecta) & Must & Precede a la asignación de tareas \\
+RF-09 & Asignación de tareas & EV-01 & CU-03 & CP-08 & Must & \\
+RF-10 & Seguimiento del cumplimiento de tareas & EV-05 & CU-03 & CP-08 & Must & \\
+RF-11 & Generación de reportes de producción & EV-03 & CU-10 & CP-10 & Must & \\
+RF-12 & Identificación de productividad por parcela & EV-01 & CU-10 & CP-10 & Should & Se apoya en el módulo de reportes \\
+RF-13 & Generación de estadísticas agrícolas & EV-01 & CU-10 & CP-10 & Should & Se apoya en el módulo de reportes \\
+RF-14 & Gestión de usuarios & EV-01 & CU-11 & CP-01 & Must & Verificado junto al control de acceso \\
+RF-15 & Consultar recomendaciones de IA & EV-01 & CU-05 & --- (pendiente) & Could & Prueba prevista para fase posterior del módulo IA --- vacío justificado \\
+RF-16 & Registro de enfermedades del cultivo & EV-01, EV-07 & CU-06 & CP-09 & Should & \\
+RNF-01 & Rendimiento (respuesta $\leq$ 3 s) & EV-02 & --- (transversal) & CP-07 & Alta & Aplica a todos los CU \\
+RNF-02 & Disponibilidad (99 \%) & EV-01 & --- (transversal) & CP-13 & Alta & Se verifica por monitoreo, no por un CU puntual \\
+RNF-03 & Seguridad (autenticación y roles) & EV-01 & CU-01 & CP-01 & Alta & \\
+RNF-04 & Usabilidad (capacitación $<$ 30 min) & EV-04 & --- (transversal) & --- (justificado) & Media & Se mide con pruebas de usuario, no con un CU específico \\
+RNF-05 & Compatibilidad de navegadores & EV-03 & --- (transversal) & --- (justificado) & Media & Prueba de compatibilidad, no ligada a un CU \\
+RNF-06 & Mantenibilidad (arquitectura modular) & EV-03 & --- (transversal) & --- (justificado) & Media & Se verifica por revisión de arquitectura \\
+\bottomrule
+\end{longtable}
+
+La matriz completa (en formato editable) también se mantiene en el repositorio del equipo como hoja de cálculo, junto con este documento.
+
+% ============================================
+% FASE 4
+% ============================================
+\section{ Verificación de cobertura y elementos huérfanos }
+
+\subsection{Vacíos de cobertura detectados y tratamiento}
+
+Al construir la matriz por primera vez se detectaron los siguientes vacíos de cobertura, es decir, requisitos sin ningún caso de uso ni prueba asociada:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{RF-04} (Registro de actividades agrícolas): no tenía caso de uso ni prueba asignados. Se corrigió creando el caso de uso CU-09 (Registrar labor realizada, ya presente como óvalo en la Figura 9 del ERS) y el caso de prueba CP-11.
+    \item \textbf{RNF-02} (Disponibilidad): no tenía prueba asociada. Se corrigió agregando el caso de prueba CP-13 (monitoreo continuo de disponibilidad), ya que este atributo de calidad no se verifica mediante un caso de uso puntual sino mediante monitoreo de infraestructura.
+\end{itemize}
+
+Tras la corrección, los siguientes vacíos se mantienen mas quedan formalmente justificados por escrito, conforme lo permite la guía del taller:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{RF-15} (Consultar recomendaciones de IA): prioridad Could Have; su caso de prueba queda pendiente para la fase de implementación del módulo de IA, fuera del alcance de esta entrega parcial.
+    \item \textbf{RNF-04, RNF-05 y RNF-06} (Usabilidad, Compatibilidad, Mantenibilidad): son cualidades transversales que se verifican mediante pruebas de usuario o revisión de arquitectura, no mediante un caso de uso específico; se documentan como pruebas no funcionales transversales en lugar de forzar un enlace artificial.
+\end{itemize}
+
+\subsection{Elementos huérfanos}
+
+Se revisó cada caso de uso (CU-01 a CU-11) y cada caso de prueba (CP-01 a CP-13) para verificar que todos remontaran a un requisito de origen. No se encontraron casos de uso ni casos de prueba huérfanos: los once casos de uso están asociados a al menos un RF, y los doce casos de prueba están asociados a al menos un RF o RNF, tal como se muestra en las tablas de la Fase 1 y en la matriz de la Fase 3.
+
+\subsection{Diagnóstico de la salud de la matriz}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}p{5cm}cp{7cm}@{}}
+\toprule
+\textbf{Indicador} & \textbf{Resultado} & \textbf{Comentario} \\
+\midrule
+Cobertura de requisitos (RF con CU o prueba) & 16/16 (100 \%) & Todos los RF quedan conectados con al menos un CU o CP tras la corrección de la Fase 4.1 \\
+Cobertura de RNF con evidencia & 6/6 (100 \%) & Los 6 RNF tienen evidencia de origen; 3 de ellos con enlace justificado en lugar de CU/CP \\
+Elementos huérfanos & 0 & Ningún CU ni CP carece de requisito de origen \\
+Bidireccionalidad & Verificada & Cada fila puede leerse EV$\rightarrow$RF$\rightarrow$CU$\rightarrow$CP y cada CU/CP remonta a su RF y su EV \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================
+% FASE 5
+% ============================================
+\section{Asignación de los roles del CCB }
+
+El equipo cuenta con tres integrantes para los seis roles del Change Control Board; conforme lo permite la guía, cada integrante acumula dos roles compatibles entre sí, agrupados según el tipo de responsabilidad que exigen (liderazgo y voz del negocio, análisis técnico, o calidad y control de configuración).
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}p{4cm}p{4cm}p{6cm}@{}}
+\toprule
+\textbf{Rol en el CCB} & \textbf{Integrante} & \textbf{Vínculo con el rol} \\
+\midrule
+Presidente del CCB & Arteaga Alava Danela Dayana & Dirige la reunión, ordena la deliberación y declara la decisión final (Fase 8) \\
+Representante del cliente / usuario & Arteaga Alava Danela Dayana (rol acumulado) & Expone la prioridad y el valor del cambio para Raúl Moreira, administrador de la finca y stakeholder principal \\
+Analista de requisitos & Gamarra Zarate Jamileth Estefania & Presenta la RFC y su trazabilidad dentro de la matriz construida en la Parte A \\
+Arquitecto / líder técnico & Gamarra Zarate Jamileth Estefania (rol acumulado) & Estima el impacto técnico del cambio sobre el diseño y la arquitectura modular (RD-05) \\
+Responsable de calidad (QA) & Mesias Quijije Jhon Alexander & Valora el efecto del cambio en las pruebas y en los requisitos no funcionales afectados \\
+Gestor de configuración (secretario) & Mesias Quijije Jhon Alexander (rol acumulado) & Redacta el acta, custodia la línea base ERS v1.0 y registra la nueva versión (Fase 9) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================
+% FASE 6
+% ============================================
+\section{ Solicitud de cambio, RFC }
+
+Escenario de cambio formulado por el equipo sobre su propio PFC, a partir de un hallazgo real de la entrevista al administrador (EV-01): ``Prefiere gestionar todo desde el celular... lo que más le interesa son alertas automáticas: cuando un insumo se agota, cuando una parcela muestra señales de enfermedad, y reportes de pérdidas por...''
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}p{4cm}p{10cm}@{}}
+\toprule
+\textbf{Identificador} & RFC-01 \\
+\midrule
+\textbf{Fecha / solicitante} & 10 de julio de 2026 --- Arteaga Alava Danela Dayana (Representante del cliente/usuario), en representación del administrador Raúl Moreira Alay \\
+\textbf{Título del cambio} & Notificaciones automáticas por WhatsApp/SMS para alertas críticas \\
+\textbf{Descripción} & Además de mostrarse en el panel web y en el Módulo de Inteligencia Artificial, las alertas por enfermedad con nivel de gravedad alto (RF-16) y los avisos de insumos próximos a agotarse (RF-06) deberán enviarse automáticamente al celular del administrador mediante WhatsApp o SMS. \\
+\textbf{Motivo / justificación} & El administrador manifestó en la entrevista (EV-01) que prefiere gestionar la finca desde el celular y que las alertas automáticas son lo que más valora; durante la jornada de campo no siempre puede revisar el panel web con frecuencia, por lo que una alerta pasiva dentro de la aplicación puede no ser vista a tiempo. \\
+\textbf{Tipo de cambio} & Perfectivo (añade valor al sistema; no corrige un error ni responde a un cambio obligatorio del entorno) \\
+\textbf{Prioridad} & Alta \\
+\textbf{Requisitos afectados} & RF-16, RF-06 (directos); RNF-01, RNF-02, RNF-03 (indirectos, ver Fase 7) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================
+% FASE 7
+% ============================================
+\section{ Análisis de impacto usando la matriz }
+
+Partiendo de RF-16 y RF-06 citados en la RFC-01, se navegó la matriz de trazabilidad de la Fase 3 en ambas direcciones para descubrir los artefactos alcanzados por el cambio.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}p{4cm}p{10cm}@{}}
+\toprule
+\textbf{RFC evaluada} & RFC-01 --- Notificaciones automáticas por WhatsApp/SMS para alertas críticas \\
+\midrule
+\textbf{Requisitos afectados directos} & RF-16 (Registro de enfermedades del cultivo), RF-06 (Gestión de inventario de insumos) \\
+\textbf{Requisitos afectados indirectos (hallados en la matriz)} & RNF-01 (Rendimiento: el envío debe ser oportuno), RNF-02 (Disponibilidad: depende de un servicio externo de mensajería), RNF-03 (Seguridad: se transmiten datos por un canal externo), y la restricción de diseño RD-06 (la IA no debe modificar automáticamente los datos, la notificación debe ser solo informativa) \\
+\textbf{Casos de uso afectados} & CU-06 (Registrar enfermedad de cultivos $\rightarrow$ Generar alerta) y CU-04 (Registrar inventario de insumos), ambos hallados a partir de RF-16 y RF-06 en la columna CU de la matriz \\
+\textbf{Pruebas afectadas} & CP-09 y CP-05 deben extenderse para verificar el envío efectivo de la notificación externa; se agrega un nuevo caso de prueba CP-14 (Verificar entrega de la notificación por WhatsApp/SMS en menos de 1 minuto tras generarse la alerta) \\
+\textbf{Efecto en RNF} & Aumenta la dependencia de la conectividad a Internet (restricción R-03 del ERS) y de un proveedor externo de mensajería; un fallo de ese proveedor afectaría la percepción de disponibilidad (RNF-02) aunque el sistema central siga operativo \\
+\textbf{Esfuerzo estimado} & Medio: requiere integrar una API externa (p. ej. Twilio o WhatsApp Business API), ajustar los módulos de enfermedades e inventario para disparar el envío, y añadir pruebas de entrega \\
+\textbf{Riesgos} & Dependencia de un servicio de terceros y de su disponibilidad; posibles costos recurrentes por mensaje; manejo del número telefónico del administrador como dato sensible (relacionado con RNF-03 y R-04 del ERS) \\
+\textbf{Alternativas consideradas} & (a) Notificaciones push dentro de la propia aplicación web --- descartada porque el administrador no siempre tiene la app abierta en campo; (b) notificación por correo electrónico --- descartada por ser menos inmediata que WhatsApp/SMS según lo expresado en la entrevista (EV-01) \\
+\textbf{Nivel de impacto} & Medio --- el cambio toca dos módulos existentes (RF-16, RF-06) y tres RNF, pero no altera la arquitectura modular (RD-05) ni el diagrama de clases conceptual del SGA \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================
+% FASE 8
+% ============================================
+\section{ Reunión del CCB y acta de decisión }
+
+El Analista de requisitos presentó la RFC-01 y su trazabilidad; el Arquitecto y la Responsable de QA expusieron el análisis de impacto de la Fase 7; la Representante del cliente argumentó la prioridad y el valor del cambio para el administrador Raúl Moreira. El comité deliberó y el Presidente declaró la decisión.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}p{4cm}p{10cm}@{}}
+\toprule
+\textbf{Fecha / asistentes} & 10 de julio de 2026 --- Arteaga Danela (Presidenta / Representante del cliente), Gamarra Jamileth (Analista / Arquitecta), Mesías Jhon (QA / Gestor de configuración) \\
+\midrule
+\textbf{RFC evaluada} & RFC-01 --- Notificaciones automáticas por WhatsApp/SMS para alertas críticas \\
+\textbf{Síntesis del impacto} & Impacto de nivel medio sobre RF-16, RF-06, RNF-01, RNF-02 y RNF-03; no compromete la arquitectura modular; requiere integración con un proveedor externo de mensajería \\
+\textbf{Decisión} & \textbf{Aprobado con condiciones} \\
+\textbf{Justificación} & Se aprueba por el alto valor evidenciado directamente en la entrevista al administrador (EV-01), stakeholder de mayor influencia según la Tabla A.1 del ERS. Se condiciona a: (1) evaluar y seleccionar un proveedor de mensajería compatible con el presupuesto del PFC; (2) para esta entrega académica, implementar la integración como un prototipo con envío simulado, dejando la conexión real con el proveedor externo para una fase posterior fuera del alcance del curso; y (3) documentar el tratamiento del número telefónico del administrador conforme a RNF-03 y a la restricción R-04 del ERS \\
+\textbf{Acciones y responsables} & 
+\begin{itemize}[leftmargin=*,nosep]
+    \item Gamarra Jamileth (Arquitecta): definir la interfaz de integración simulada con el servicio de mensajería.
+    \item Mesías Jhon (QA): actualizar CP-09 y CP-05, crear CP-14 y definir los criterios de aceptación de la notificación simulada.
+    \item Gamarra Jamileth (Analista): actualizar RF-16 y RF-06 en el ERS y en la matriz de trazabilidad.
+    \item Mesías Jhon (Gestor de configuración): actualizar la línea base, generar la nueva versión del ERS y subir los cambios al repositorio.
+\end{itemize} \\
+\textbf{Nueva línea base} & ERS v1.1 \\
+\textbf{Firmas} & [espacio para la firma o inicial de cada uno de los tres integrantes en el documento final] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================
+% FASE 9
+% ============================================
+\section{ Cierre: actualización de la línea base y el repositorio }
+
+Al haberse aprobado la RFC-01 con condiciones, se aplicaron las siguientes actualizaciones:
+
+\begin{itemize}[leftmargin=*]
+    \item RF-16 y RF-06 se actualizan en el ERS agregando la nota ``canal de notificación externo (WhatsApp/SMS, prototipo simulado)'' en su descripción y en su flujo principal.
+    \item La matriz de trazabilidad de la Fase 3 se actualiza agregando el caso de prueba CP-14 en las filas de RF-16 y RF-06.
+    \item Se etiqueta la nueva línea base como ERS v1.1, dejando registro de que proviene de ERS v1.0 + RFC-01 (aprobado con condiciones).
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Nueva línea base} & ERS v1.1 \\
+\midrule
+\textbf{Mensaje de commit sugerido} & ``Aplica RFC-01: aprobado con condiciones por CCB --- agrega notificación externa (prototipo) a RF-06 y RF-16, baseline v1.1'' \\
+\textbf{Verificación del historial} & El gestor de configuración confirma en el repositorio que el commit anterior cita explícitamente RFC-01 y que la matriz de trazabilidad adjunta refleja la fila actualizada de RF-16 y RF-06 con el nuevo caso de prueba CP-14 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}
